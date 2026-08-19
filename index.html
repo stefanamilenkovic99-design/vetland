@@ -502,7 +502,8 @@
     border-top-left-radius:44px;
     border-top-right-radius:44px;
     position:relative;
-    overflow:hidden;
+    z-index:2;
+    overflow-x:clip;
   }
   .voice-marquee{
     overflow:hidden;
@@ -556,12 +557,40 @@
   .voice-who span{font-size:0.76rem;color:var(--muted-dark);}
   .voice-bottom{position:relative;display:flex;justify-content:center;}
   .voice-bottom .watermark{font-size:clamp(2.6rem,10vw,8rem);top:50%;}
-  .voice-photo{width:min(420px,100%);height:300px;}
+  .voice-dog{
+    position:relative;
+    z-index:2;
+    display:flex;
+    justify-content:center;
+    margin-bottom:-220px;
+  }
+  .voice-dog img{
+    width:min(340px,68vw);
+    height:auto;
+    filter:drop-shadow(0 18px 24px rgba(12,6,4,0.45));
+  }
+  .voice-dog .dog-note{
+    display:none;
+    width:min(340px,68vw);
+    border:1px dashed rgba(255,255,255,0.20);
+    border-radius:var(--radius);
+    color:rgba(255,255,255,0.45);
+    font-size:10px;
+    font-weight:600;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    line-height:1.6;
+    text-align:center;
+    padding:120px 24px;
+  }
+  .voice-dog.no-photo{margin-bottom:0;}
+  .voice-dog.no-photo .dog-note{display:block;}
   @media(max-width:600px){
     .voice-marquee{margin-bottom:36px;}
     .voice-card{width:275px;}
     .voices{border-top-left-radius:28px;border-top-right-radius:28px;}
-    .voice-photo{height:220px;}
+    .voice-dog{margin-bottom:-120px;}
+    .voice-dog .dog-note{padding:80px 20px;}
   }
 
   /* ---------- FOOTER ---------- */
@@ -689,17 +718,17 @@
             <a href="tel:034370275" class="btn">Zakažite pregled</a>
             <a href="#cenovnik" class="btn btn-ghost">Vidite cenovnik</a>
           </div>
-        </div>
-        <div class="about-right">
-          <p>Vetland radi u Kragujevcu, u Slobodana Perovića 8. Pregled, snimanje i analiza krvi rade se u istoj zgradi, pa ne vozite psa iz jedne ordinacije u drugu da biste dobili nalaz.</p>
-          <p>Lek i hranu kupujete pre nego što izađete, u apoteci i pet shopu koji su odmah pored čekaonice. Vlasnik dobija terapiju u ruke isti dan kad je došao na pregled.</p>
-          <p>Za konje, krave i ovce izlazimo na teren u okolna sela. Pozovite i dogovorite se za dolazak na imanje.</p>
           <ul class="checks">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.2 2.4 2.4 4.6-5"/></svg><span>Rendgen, ultrazvuk i laboratorija u istoj zgradi</span></li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.2 2.4 2.4 4.6-5"/></svg><span>Apoteka i pet shop odmah pored čekaonice</span></li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.2 2.4 2.4 4.6-5"/></svg><span>Terenska služba za konje, krave i ovce</span></li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.2 2.4 2.4 4.6-5"/></svg><span>Radimo svih sedam dana u nedelji</span></li>
           </ul>
+        </div>
+        <div class="about-right">
+          <p>Vetland radi u Kragujevcu, u Slobodana Perovića 8. Pregled, snimanje i analiza krvi rade se u istoj zgradi, pa ne vozite psa iz jedne ordinacije u drugu da biste dobili nalaz.</p>
+          <p>Lek i hranu kupujete pre nego što izađete, u apoteci i pet shopu koji su odmah pored čekaonice. Vlasnik dobija terapiju u ruke isti dan kad je došao na pregled.</p>
+          <p>Za konje, krave i ovce izlazimo na teren u okolna sela. Pozovite i dogovorite se za dolazak na imanje.</p>
           <div class="ph about-photo-2">
             <img src="assets/o-nama-2.jpg" alt="Mačka na stolu za pregled u veterinarskoj ambulanti">
             FOTOGRAFIJA - MAČKA NA STOLU ZA PREGLED
@@ -959,9 +988,9 @@
 
       <div class="voice-bottom">
         <div class="watermark on-dark" aria-hidden="true">utisci vlasnika</div>
-        <div class="ph on-dark voice-photo" style="position:relative;z-index:1;">
-          <img src="assets/utisci.jpg" alt="Zadovoljan pas posle pregleda">
-          FOTOGRAFIJA - PAS POSLE PREGLEDA
+        <div class="voice-dog">
+          <img src="assets/utisci-pas.png" alt="Pas prednjim šapama naslonjen na ivicu sekcije">
+          <span class="dog-note">TRANSPARENTNA PNG FOTOGRAFIJA PSA</span>
         </div>
       </div>
     </div>
@@ -1036,6 +1065,17 @@
 
   // Dok fotografija ne postoji u assets/, ostaje sivi placeholder ispod nje.
   (function () {
+    var dogBox = document.querySelector('.voice-dog');
+    var dogImg = dogBox && dogBox.querySelector('img');
+    if (dogImg) {
+      function dogMissing() { dogImg.remove(); dogBox.classList.add('no-photo'); }
+      if (dogImg.complete && dogImg.naturalWidth === 0) {
+        dogMissing();
+      } else {
+        dogImg.addEventListener('error', dogMissing);
+      }
+    }
+
     var shots = document.querySelectorAll('.ph img');
     shots.forEach(function (img) {
       function loaded() { img.parentNode.classList.add('has-photo'); }
