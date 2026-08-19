@@ -7,20 +7,23 @@
 <meta name="description" content="Vetland Kragujevac: rendgen, ultrazvuk, laboratorija, hirurgija, preventiva i stomatologija, uz apoteku i pet shop na istoj adresi. Slobodana Perovića 8, telefon 034/370-275.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --primary:#106d98;
-    --primary-dark:#0b4f6c;
-    --primary-soft:rgba(16,109,152,0.09);
-    --cream:#fbf6ee;
-    --cream-deep:#f3ebdf;
-    --card:#ffffff;
-    --ink:#16232c;
-    --muted:#5c6b76;
-    --border:#ece2d4;
-    --border-dark:rgba(255,255,255,0.18);
-    --radius:22px;
+    --accent:#bf4229;
+    --accent-dark:#9d3220;
+    --accent-soft:rgba(191,66,41,0.10);
+    --cream:#f8f3ea;
+    --beige:#ece1cf;
+    --beige-deep:#e3d5bd;
+    --dark:#33211b;
+    --dark-2:#2a1a15;
+    --ink:#24140f;
+    --muted:#6f5a4e;
+    --muted-dark:rgba(255,255,255,0.62);
+    --line:#e2d5c0;
+    --line-dark:rgba(255,255,255,0.16);
+    --radius:20px;
     --radius-sm:14px;
     --pill:999px;
   }
@@ -36,10 +39,11 @@
     overflow-x:hidden;
   }
   h1,h2,h3,h4{
-    font-family:'Plus Jakarta Sans',sans-serif;
-    line-height:1.2;
+    font-family:'Figtree',sans-serif;
+    line-height:1.15;
     font-weight:700;
     color:var(--ink);
+    letter-spacing:-0.02em;
   }
   img{max-width:100%;display:block;}
   a{color:inherit;text-decoration:none;}
@@ -47,67 +51,63 @@
   button{font-family:inherit;}
 
   .wrap{
-    max-width:1280px;
+    max-width:1240px;
     margin-left:auto;
     margin-right:auto;
     padding-left:24px;
     padding-right:24px;
   }
   @media(max-width:768px){
-    .wrap{padding-left:20px;padding-right:20px;}
+    .wrap{padding-left:18px;padding-right:18px;}
   }
 
-  section{
-    padding-top:96px;
-    padding-bottom:96px;
-  }
+  section{padding-top:92px;padding-bottom:92px;}
   @media(max-width:768px){
-    section{padding-top:60px;padding-bottom:60px;}
+    section{padding-top:56px;padding-bottom:56px;}
   }
 
-  /* zajednički elementi */
-  .chip{
+  /* ---------- ZAJEDNIČKI ELEMENTI ---------- */
+  .eyebrow{
     display:inline-flex;
     align-items:center;
     gap:8px;
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:var(--pill);
-    padding:7px 16px;
-    font-size:0.78rem;
+    font-size:0.72rem;
     font-weight:600;
-    letter-spacing:0.06em;
+    letter-spacing:0.16em;
     text-transform:uppercase;
-    color:var(--primary);
-    margin-bottom:18px;
+    color:var(--accent);
+    margin-bottom:16px;
   }
-  .chip svg{width:14px;height:14px;flex:none;}
-  .chip.on-dark{
-    background:rgba(255,255,255,0.12);
-    border-color:var(--border-dark);
-    color:#fff;
+  .eyebrow::before{
+    content:"";
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--accent);
+    flex:none;
   }
+  .eyebrow.on-dark{color:#f0c3b5;}
+  .eyebrow.on-dark::before{background:#f0c3b5;}
 
-  .section-head{max-width:640px;margin-bottom:48px;}
+  .section-head{max-width:620px;}
   .section-head.center{margin-left:auto;margin-right:auto;text-align:center;}
-  .section-head h2{font-size:2.15rem;margin-bottom:14px;}
-  .section-head p{color:var(--muted);max-width:62ch;}
-  .section-head.center p{margin-left:auto;margin-right:auto;}
+  .section-head h2{font-size:2.3rem;margin-bottom:14px;}
+  .section-head p{color:var(--muted);}
+  .section-head.on-dark h2{color:#fff;}
+  .section-head.on-dark p{color:var(--muted-dark);}
   @media(max-width:768px){
-    .section-head h2{font-size:1.7rem;}
-    .section-head{margin-bottom:32px;}
+    .section-head h2{font-size:1.65rem;}
   }
 
   .head-row{
     display:flex;
     align-items:flex-end;
     justify-content:space-between;
-    gap:24px;
+    gap:28px;
     margin-bottom:44px;
   }
-  .head-row .section-head{margin-bottom:0;}
-  @media(max-width:768px){
-    .head-row{flex-direction:column;align-items:flex-start;margin-bottom:30px;}
+  @media(max-width:860px){
+    .head-row{flex-direction:column;align-items:flex-start;gap:20px;margin-bottom:30px;}
   }
 
   .btn{
@@ -115,474 +115,467 @@
     align-items:center;
     justify-content:center;
     gap:9px;
-    background:var(--primary);
+    background:var(--accent);
     color:#fff;
-    padding:14px 28px;
+    padding:14px 26px;
     border-radius:var(--pill);
-    font-family:'Plus Jakarta Sans',sans-serif;
     font-weight:600;
-    font-size:0.95rem;
-    border:1px solid var(--primary);
+    font-size:0.94rem;
+    border:1px solid var(--accent);
     cursor:pointer;
-    text-align:center;
+    transition:background .2s ease,transform .2s ease;
+    white-space:nowrap;
   }
-  .btn:hover{background:var(--primary-dark);border-color:var(--primary-dark);}
-  .btn svg{width:16px;height:16px;flex:none;}
-  .btn-ghost{
-    background:var(--card);
-    color:var(--ink);
-    border:1px solid var(--border);
-  }
-  .btn-ghost:hover{background:var(--cream-deep);border-color:var(--cream-deep);color:var(--ink);}
-  .btn-light{
-    background:#fff;
-    color:var(--primary-dark);
-    border-color:#fff;
-  }
-  .btn-light:hover{background:var(--cream-deep);border-color:var(--cream-deep);color:var(--primary-dark);}
-  .btn-sm{padding:10px 20px;font-size:0.86rem;}
+  .btn:hover{background:var(--accent-dark);border-color:var(--accent-dark);transform:translateY(-1px);}
+  .btn svg{width:17px;height:17px;flex:none;}
 
-  .placeholder{
-    background:var(--cream-deep);
-    border:1px dashed #cdbfab;
-    color:#7d6f5d;
+  .btn-ghost{
+    background:transparent;
+    color:var(--ink);
+    border:1px solid var(--line);
+  }
+  .btn-ghost:hover{background:#fff;border-color:var(--ink);}
+  .btn-ghost.on-dark{color:#fff;border-color:var(--line-dark);}
+  .btn-ghost.on-dark:hover{background:rgba(255,255,255,0.10);border-color:#fff;}
+
+  /* ---------- PLACEHOLDERI ZA FOTOGRAFIJE ---------- */
+  .ph{
+    position:relative;
+    overflow:hidden;
+    background:var(--beige);
+    border:1px dashed #c9b593;
+    border-radius:var(--radius);
+    color:#93796a;
     display:flex;
     align-items:center;
     justify-content:center;
     text-align:center;
-    font-size:0.78rem;
+    font-size:10px;
     font-weight:600;
-    letter-spacing:0.05em;
-    padding:20px;
-    border-radius:var(--radius-sm);
-    min-height:220px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    line-height:1.6;
+    padding:18px;
   }
-  .placeholder.on-dark{
-    background:rgba(255,255,255,0.08);
-    border-color:var(--border-dark);
-    color:rgba(255,255,255,0.75);
+  .ph img{
+    position:absolute;
+    top:0;left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
   }
+  .ph.has-photo{border:none;background:none;color:transparent;}
+  .ph.on-dark{background:#3d2a23;border-color:rgba(255,255,255,0.20);color:rgba(255,255,255,0.45);}
 
-  /* HEADER */
+  /* ---------- HEADER ---------- */
   .site-header{
-    position:sticky;
-    top:0;
-    z-index:100;
+    position:fixed;
+    top:0;left:0;right:0;
+    z-index:60;
+    padding:16px 0;
+    transition:background .25s ease,box-shadow .25s ease,padding .25s ease;
+  }
+  .site-header.scrolled{
     background:var(--cream);
-    border-bottom:1px solid var(--border);
+    box-shadow:0 6px 24px rgba(45,26,18,0.08);
+    padding:10px 0;
   }
   .nav-wrap{
     display:flex;
     align-items:center;
     justify-content:space-between;
     gap:20px;
-    padding-top:14px;
-    padding-bottom:14px;
-    position:relative;
   }
   .logo img{height:42px;width:auto;}
+  .site-header:not(.scrolled) .logo img{filter:brightness(0) invert(1);}
+
+  .nav-menu{display:flex;align-items:center;gap:34px;}
+  .nav-links{display:flex;align-items:center;gap:28px;}
+  .nav-links a{
+    font-size:0.92rem;
+    font-weight:500;
+    color:#fff;
+    transition:color .2s ease;
+  }
+  .site-header.scrolled .nav-links a{color:var(--ink);}
+  .nav-links a:hover{color:var(--accent);}
+
   .nav-toggle{display:none;}
   .hamburger{
     display:none;
+    width:42px;height:42px;
+    border-radius:12px;
+    border:1px solid var(--line-dark);
+    cursor:pointer;
     flex-direction:column;
+    align-items:center;
     justify-content:center;
     gap:5px;
-    width:44px;
-    height:44px;
-    border:1px solid var(--border);
-    border-radius:var(--pill);
-    background:var(--card);
-    cursor:pointer;
-    align-items:center;
   }
-  .hamburger span{width:20px;height:2px;background:var(--ink);display:block;border-radius:2px;}
-  .nav-menu{display:flex;align-items:center;gap:34px;}
-  .nav-links{display:flex;gap:26px;}
-  .nav-links a{font-size:0.94rem;font-weight:500;color:var(--ink);}
-  .nav-links a:hover{color:var(--primary);}
+  .hamburger span{display:block;width:18px;height:2px;background:#fff;border-radius:2px;}
+  .site-header.scrolled .hamburger{border-color:var(--line);}
+  .site-header.scrolled .hamburger span{background:var(--ink);}
 
-  @media(max-width:991px){
+  @media(max-width:960px){
     .hamburger{display:flex;}
     .nav-menu{
-      display:none;
       position:absolute;
-      top:calc(100% + 10px);
-      left:20px;
-      right:20px;
-      background:var(--card);
-      border:1px solid var(--border);
+      top:100%;
+      left:18px;right:18px;
+      background:var(--cream);
+      border:1px solid var(--line);
       border-radius:var(--radius);
       flex-direction:column;
       align-items:stretch;
-      padding-top:22px;
-      padding-bottom:22px;
-      padding-left:22px;
-      padding-right:22px;
-      gap:18px;
+      gap:6px;
+      padding:16px;
+      box-shadow:0 20px 40px rgba(45,26,18,0.14);
+      display:none;
     }
-    .nav-links{flex-direction:column;gap:16px;}
     .nav-toggle:checked ~ .nav-menu{display:flex;}
-    .nav-menu .btn{width:100%;}
+    .nav-links{flex-direction:column;align-items:stretch;gap:2px;}
+    .nav-links a{display:block;padding:10px 8px;color:var(--ink);}
+    .nav-menu .btn{width:100%;margin-top:6px;}
   }
 
-  /* HERO */
-  .hero{padding-top:70px;padding-bottom:70px;}
-  .hero-inner{
-    display:grid;
-    grid-template-columns:1.05fr 1fr;
-    gap:56px;
-    align-items:center;
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:96vh;
+    display:flex;
+    align-items:flex-end;
+    padding-top:180px;
+    padding-bottom:72px;
+    overflow:hidden;
   }
-  .hero h1{font-size:3.05rem;margin-bottom:20px;}
-  .hero p.lead{
+  .hero-media{
+    position:absolute;
+    top:0;left:0;right:0;bottom:0;
+    border-radius:0;
+    border:none;
+    background:#3d2a23;
+    color:rgba(255,255,255,0.4);
+    align-items:flex-start;
+    padding-top:96px;
+  }
+  .hero-media::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg,rgba(30,17,12,0.62) 0%,rgba(30,17,12,0.30) 42%,rgba(30,17,12,0.86) 100%);
+  }
+  .hero-inner{position:relative;z-index:2;width:100%;}
+  .hero-copy{max-width:760px;}
+  .hero h1{
+    color:#fff;
+    font-size:clamp(2.3rem,5.6vw,4.4rem);
+    font-weight:800;
+    margin-bottom:20px;
+  }
+  .hero .lead{
+    color:rgba(255,255,255,0.82);
     font-size:1.06rem;
-    color:var(--muted);
-    max-width:52ch;
+    max-width:56ch;
     margin-bottom:30px;
   }
   .hero-actions{display:flex;flex-wrap:wrap;gap:12px;}
-  .hero-media{position:relative;}
-  .hero-media .placeholder{min-height:400px;border-radius:var(--radius);}
-  .hero-badge{
+
+  .hero-note{
     position:absolute;
-    left:24px;
-    bottom:24px;
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:var(--pill);
-    padding:10px 18px 10px 12px;
-    display:flex;
-    align-items:center;
-    gap:10px;
-    font-size:0.85rem;
-    font-weight:600;
-    max-width:calc(100% - 48px);
-  }
-  .hero-badge img{width:34px;height:34px;border-radius:var(--pill);flex:none;}
-  .hero-stats{
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px;
-    margin-top:34px;
-  }
-  .hero-stat{
-    display:flex;
-    align-items:center;
-    gap:11px;
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:var(--pill);
-    padding:9px 18px 9px 10px;
-    font-size:0.88rem;
-    font-weight:500;
-  }
-  .hero-stat img{width:32px;height:32px;border-radius:var(--pill);flex:none;}
-  @media(max-width:991px){
-    .hero-inner{grid-template-columns:1fr;gap:40px;}
-    .hero h1{font-size:2.3rem;}
-    .hero-media .placeholder{min-height:300px;}
-  }
-  @media(max-width:600px){
-    .hero h1{font-size:1.95rem;}
-    .hero-actions .btn{width:100%;}
-    .hero-stat{width:100%;}
-  }
-
-  /* USLUGE */
-  .cards-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
-  @media(max-width:991px){.cards-3{grid-template-columns:repeat(2,1fr);}}
-  @media(max-width:600px){.cards-3{grid-template-columns:1fr;}}
-
-  .card{
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:var(--radius);
-    padding-top:28px;
-    padding-bottom:28px;
-    padding-left:26px;
-    padding-right:26px;
-  }
-  .icon-tile{
-    width:50px;
-    height:50px;
+    right:24px;
+    bottom:4px;
+    z-index:3;
+    background:rgba(255,255,255,0.94);
     border-radius:var(--radius-sm);
-    background:var(--primary-soft);
+    padding:14px 18px;
     display:flex;
     align-items:center;
-    justify-content:center;
-    margin-bottom:18px;
+    gap:12px;
+    box-shadow:0 14px 30px rgba(25,14,10,0.22);
   }
-  .icon-tile svg{width:26px;height:26px;}
-  .card h3{font-size:1.1rem;margin-bottom:8px;}
-  .card p{color:var(--muted);font-size:0.94rem;}
+  .hero-note svg{width:22px;height:22px;color:var(--accent);flex:none;}
+  .hero-note strong{display:block;font-family:'Figtree',sans-serif;font-size:0.94rem;}
+  .hero-note span{font-size:0.78rem;color:var(--muted);}
+  @media(max-width:1100px){
+    .hero-note{position:static;margin-top:28px;display:inline-flex;}
+  }
+  @media(max-width:768px){
+    .hero{min-height:auto;padding-top:130px;padding-bottom:52px;}
+    .hero .lead{font-size:0.98rem;}
+    .hero-actions .btn{width:100%;}
+  }
 
-  /* TAMNI BANER */
-  .banner{
-    background:var(--primary-dark);
-    border-radius:var(--radius);
-    overflow:hidden;
+  /* ---------- TRAKA SA IKONICAMA ---------- */
+  .strip{background:var(--cream);padding:34px 0;}
+  .strip-grid{
     display:grid;
-    grid-template-columns:1.1fr 1fr;
-    gap:0;
-    align-items:stretch;
+    grid-template-columns:repeat(5,1fr);
+    gap:8px;
   }
-  .banner-text{
-    padding-top:56px;
-    padding-bottom:56px;
-    padding-left:48px;
-    padding-right:48px;
-    color:#fff;
-  }
-  .banner-text h2{color:#fff;font-size:1.9rem;margin-bottom:14px;}
-  .banner-text p{color:rgba(255,255,255,0.82);max-width:52ch;margin-bottom:26px;}
-  .banner-media{padding:24px;display:flex;}
-  .banner-media .placeholder{width:100%;min-height:280px;}
-  @media(max-width:991px){
-    .banner{grid-template-columns:1fr;}
-    .banner-text{padding-left:28px;padding-right:28px;padding-top:40px;padding-bottom:40px;}
-    .banner-text h2{font-size:1.55rem;}
-    .banner-media{padding:20px;padding-top:0;}
-    .banner-media .placeholder{min-height:200px;}
-  }
-
-  /* APOTEKA / PET SHOP */
-  .split-2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
-  @media(max-width:768px){.split-2{grid-template-columns:1fr;}}
-  .split-card{
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:var(--radius);
-    padding-top:30px;
-    padding-bottom:30px;
-    padding-left:30px;
-    padding-right:30px;
+  .strip-item{
     display:flex;
     flex-direction:column;
-    gap:18px;
-  }
-  .split-card img.thumb{
-    width:120px;
-    height:120px;
-    object-fit:cover;
-    border-radius:var(--radius-sm);
-    background:var(--cream-deep);
-  }
-  .split-card h3{font-size:1.3rem;}
-  .split-card p{color:var(--muted);font-size:0.95rem;}
-  .split-card ul{display:flex;flex-direction:column;gap:9px;}
-  .split-card li{
-    display:flex;
-    gap:10px;
-    align-items:flex-start;
-    font-size:0.94rem;
-    color:var(--muted);
-  }
-  .split-card li svg{width:17px;height:17px;flex:none;margin-top:4px;}
-  .split-card .btn{align-self:flex-start;margin-top:4px;}
-
-  /* KORACI */
-  .step{
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:var(--radius);
-    padding-top:28px;
-    padding-bottom:28px;
-    padding-left:26px;
-    padding-right:26px;
-  }
-  .step-num{
-    width:42px;
-    height:42px;
-    border-radius:var(--pill);
-    background:var(--primary);
-    color:#fff;
-    display:flex;
     align-items:center;
-    justify-content:center;
-    font-family:'Plus Jakarta Sans',sans-serif;
-    font-weight:700;
-    margin-bottom:16px;
-  }
-  .step h3{font-size:1.08rem;margin-bottom:8px;}
-  .step p{color:var(--muted);font-size:0.94rem;}
-
-  /* PAKETI */
-  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:start;}
-  @media(max-width:991px){.plans{grid-template-columns:1fr;max-width:560px;margin-left:auto;margin-right:auto;}}
-  .plan{
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:var(--radius);
-    padding-top:32px;
-    padding-bottom:32px;
-    padding-left:28px;
-    padding-right:28px;
-  }
-  .plan.featured{border:2px solid var(--primary);}
-  .plan-tag{
-    display:inline-block;
-    font-size:0.72rem;
-    font-weight:700;
-    letter-spacing:0.06em;
-    text-transform:uppercase;
-    color:var(--primary);
-    background:var(--primary-soft);
-    border-radius:var(--pill);
-    padding:5px 12px;
-    margin-bottom:14px;
-  }
-  .plan h3{font-size:1.25rem;margin-bottom:6px;}
-  .plan .plan-note{color:var(--muted);font-size:0.9rem;margin-bottom:20px;}
-  .plan ul{display:flex;flex-direction:column;gap:10px;margin-bottom:26px;}
-  .plan li{display:flex;gap:10px;align-items:flex-start;font-size:0.93rem;color:var(--muted);}
-  .plan li svg{width:17px;height:17px;flex:none;margin-top:4px;}
-  .plan .btn{width:100%;}
-
-  /* PROIZVODI */
-  .products{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
-  @media(max-width:991px){.products{grid-template-columns:repeat(2,1fr);}}
-  @media(max-width:520px){.products{grid-template-columns:1fr;}}
-  .product{
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:var(--radius);
-    padding-top:20px;
-    padding-bottom:20px;
-    padding-left:20px;
-    padding-right:20px;
-  }
-  .product-media{
-    background:var(--cream-deep);
-    border:1px dashed #cdbfab;
-    border-radius:var(--radius-sm);
-    height:150px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    margin-bottom:16px;
-    overflow:hidden;
-  }
-  .product-media .ph-text{
-    color:#7d6f5d;
-    font-size:0.72rem;
-    font-weight:600;
-    letter-spacing:0.05em;
     text-align:center;
-    padding-left:12px;
-    padding-right:12px;
+    gap:10px;
+    padding:8px 12px;
+    border-right:1px solid var(--line);
   }
-  .product h3{font-size:1rem;margin-bottom:6px;}
-  .product p{color:var(--muted);font-size:0.88rem;margin-bottom:14px;}
-  .product-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
-  .product-foot span{font-size:0.85rem;font-weight:600;color:var(--primary);}
+  .strip-item:last-child{border-right:none;}
+  .strip-item svg{width:26px;height:26px;color:var(--accent);}
+  .strip-item span{
+    font-family:'Figtree',sans-serif;
+    font-size:0.82rem;
+    font-weight:600;
+    line-height:1.35;
+    max-width:14ch;
+  }
+  @media(max-width:860px){
+    .strip-grid{grid-template-columns:repeat(2,1fr);gap:18px;}
+    .strip-item{border-right:none;}
+  }
 
-  /* ZAKAZIVANJE / KONTAKT */
-  .booking{
+  /* ---------- O NAMA ---------- */
+  .about-grid{
     display:grid;
     grid-template-columns:1.05fr 1fr;
-    gap:22px;
+    gap:56px;
     align-items:start;
   }
-  @media(max-width:991px){.booking{grid-template-columns:1fr;}}
-  .form-card{
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:var(--radius);
-    padding-top:34px;
-    padding-bottom:34px;
-    padding-left:32px;
-    padding-right:32px;
+  .about-left h2{font-size:2.65rem;margin-bottom:26px;}
+  .about-photo-1{height:330px;margin-bottom:26px;}
+  .about-actions{display:flex;flex-wrap:wrap;gap:12px;}
+  .about-right p{color:var(--muted);margin-bottom:16px;}
+  .about-photo-2{height:300px;margin-top:26px;}
+  @media(max-width:900px){
+    .about-grid{grid-template-columns:1fr;gap:32px;}
+    .about-left h2{font-size:1.8rem;}
+    .about-photo-1,.about-photo-2{height:240px;}
+    .about-actions .btn{flex:1 1 100%;}
   }
-  @media(max-width:600px){
-    .form-card{padding-left:22px;padding-right:22px;}
-  }
-  .form-card h3{font-size:1.4rem;margin-bottom:8px;}
-  .form-card > p{color:var(--muted);font-size:0.94rem;margin-bottom:24px;}
-  .form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
-  @media(max-width:600px){.form-grid{grid-template-columns:1fr;}}
-  .field{display:flex;flex-direction:column;gap:7px;}
-  .field.full{grid-column:1 / -1;}
-  .field label{font-size:0.83rem;font-weight:600;}
-  .field input,.field select,.field textarea{
-    font-family:'Inter',sans-serif;
-    font-size:0.94rem;
-    color:var(--ink);
-    background:var(--cream);
-    border:1px solid var(--border);
-    border-radius:var(--radius-sm);
-    padding-top:12px;
-    padding-bottom:12px;
-    padding-left:15px;
-    padding-right:15px;
-    width:100%;
-  }
-  .field textarea{min-height:110px;resize:vertical;}
-  .field input:focus,.field select:focus,.field textarea:focus{
-    outline:none;
-    border-color:var(--primary);
-  }
-  .form-card .btn{margin-top:22px;}
-  .form-note{color:var(--muted);font-size:0.85rem;margin-top:14px;}
-  .form-note a{color:var(--primary);font-weight:600;}
 
-  .contact-col{display:flex;flex-direction:column;gap:22px;}
-  .info-card{
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:var(--radius);
-    padding-top:26px;
-    padding-bottom:26px;
-    padding-left:26px;
-    padding-right:26px;
-    display:flex;
-    gap:16px;
-    align-items:flex-start;
-  }
-  .info-card .icon-tile{margin-bottom:0;flex:none;width:46px;height:46px;}
-  .info-card .icon-tile svg{width:23px;height:23px;}
-  .info-card h4{font-size:1rem;margin-bottom:6px;}
-  .info-card p{color:var(--muted);font-size:0.93rem;}
-  .info-card a{color:var(--primary);font-weight:600;}
-  .contact-col .placeholder{min-height:200px;border-radius:var(--radius);}
-
-  /* FOOTER */
-  footer{
-    background:var(--primary-dark);
-    color:rgba(255,255,255,0.78);
-    padding-top:70px;
-    padding-bottom:32px;
-  }
-  .footer-grid{
+  /* ---------- BROJKE ---------- */
+  .stats{
     display:grid;
-    grid-template-columns:1.6fr 1fr 1fr;
-    gap:44px;
-    margin-bottom:44px;
+    grid-template-columns:repeat(3,1fr);
+    gap:32px;
+    margin-top:72px;
+    padding-top:44px;
+    border-top:1px solid var(--line);
   }
-  @media(max-width:768px){.footer-grid{grid-template-columns:1fr;gap:30px;}}
-  footer h4{color:#fff;font-size:1rem;margin-bottom:16px;}
-  footer p,footer a,footer li{font-size:0.92rem;}
-  footer ul{display:flex;flex-direction:column;gap:10px;}
-  footer a:hover{color:#fff;}
-  .footer-logo{
+  .stat-num{
+    font-family:'Figtree',sans-serif;
+    font-size:3.1rem;
+    font-weight:800;
+    color:var(--accent);
+    line-height:1;
+    margin-bottom:12px;
+  }
+  .stat-label{font-size:0.9rem;color:var(--muted);max-width:26ch;}
+  @media(max-width:768px){
+    .stats{grid-template-columns:1fr;gap:26px;margin-top:44px;padding-top:32px;}
+    .stat-num{font-size:2.4rem;}
+  }
+
+  /* ---------- USLUGE (bež sekcija) ---------- */
+  .band{background:var(--beige);}
+  .band .ph{background:var(--beige-deep);}
+
+  .svc-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:22px;
+    margin-top:48px;
+  }
+  .svc-col{display:flex;flex-direction:column;gap:18px;}
+  .svc-card{
     background:#fff;
     border-radius:var(--radius-sm);
-    padding:12px;
-    display:inline-block;
-    margin-bottom:18px;
+    padding:22px 20px;
+    border:1px solid rgba(36,20,15,0.06);
+    flex:1;
   }
-  .footer-logo img{height:34px;width:auto;}
-  .footer-bottom{
-    border-top:1px solid var(--border-dark);
-    padding-top:22px;
-    font-size:0.83rem;
-    color:rgba(255,255,255,0.6);
+  .svc-card svg{width:24px;height:24px;color:var(--accent);margin-bottom:14px;}
+  .svc-card h3{font-size:1.02rem;margin-bottom:8px;line-height:1.3;}
+  .svc-card p{font-size:0.86rem;color:var(--muted);line-height:1.6;}
+  .svc-photo{height:190px;}
+  @media(max-width:1000px){
+    .svc-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media(max-width:640px){
+    .svc-grid{grid-template-columns:1fr;gap:26px;margin-top:32px;}
+    .svc-photo{height:200px;}
+  }
+
+  /* ---------- CENOVNIK ---------- */
+  .prices{position:relative;margin-top:96px;}
+  .watermark{
+    position:absolute;
+    left:50%;
+    top:44%;
+    transform:translate(-50%,-50%);
+    font-family:'Figtree',sans-serif;
+    font-weight:800;
+    font-size:clamp(3.4rem,13vw,10rem);
+    letter-spacing:-0.03em;
+    color:rgba(36,20,15,0.10);
+    white-space:nowrap;
+    pointer-events:none;
+    z-index:0;
+  }
+  .watermark.on-dark{color:rgba(255,255,255,0.10);}
+  .price-head{position:relative;z-index:1;text-align:center;margin-bottom:40px;}
+  .price-block{
+    position:relative;
+    z-index:1;
+    display:grid;
+    grid-template-columns:1fr 280px 1fr;
+    gap:44px;
+    align-items:center;
+  }
+  .price-photo{height:330px;}
+  .price-list{display:flex;flex-direction:column;gap:6px;}
+  .price-row{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    padding:12px 0;
+    border-bottom:1px dashed rgba(36,20,15,0.18);
+  }
+  .price-row:last-child{border-bottom:none;}
+  .price-row .name{
+    font-family:'Figtree',sans-serif;
+    font-weight:600;
+    font-size:0.96rem;
+  }
+  .price-row .dots{flex:1;}
+  .price-row .val{
+    font-family:'Figtree',sans-serif;
+    font-weight:700;
+    color:var(--accent);
+    white-space:nowrap;
+  }
+  .price-note{
+    position:relative;
+    z-index:1;
     text-align:center;
+    margin-top:36px;
+    font-size:0.88rem;
+    color:var(--muted);
+  }
+  @media(max-width:940px){
+    .price-block{grid-template-columns:1fr;gap:28px;}
+    .price-photo{height:240px;order:-1;}
+    .prices{margin-top:60px;}
+  }
+
+  /* ---------- GALERIJA ---------- */
+  .gal-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:34px 28px;
+  }
+  .gal-item .ph{height:330px;margin-bottom:16px;}
+  .gal-label{
+    font-size:0.7rem;
+    font-weight:600;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--accent);
+    display:block;
+    margin-bottom:5px;
+  }
+  .gal-item h3{font-size:1.15rem;}
+  @media(max-width:768px){
+    .gal-grid{grid-template-columns:1fr;gap:28px;}
+    .gal-item .ph{height:230px;}
+  }
+
+  /* ---------- UTISCI ---------- */
+  .voices{
+    background:var(--dark);
+    border-top-left-radius:44px;
+    border-top-right-radius:44px;
+    position:relative;
+    overflow:hidden;
+  }
+  .voice-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+    margin-bottom:56px;
+  }
+  .voice-card{
+    background:rgba(255,255,255,0.05);
+    border:1px solid var(--line-dark);
+    border-radius:var(--radius-sm);
+    padding:22px 20px;
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+  }
+  .voice-card p{color:rgba(255,255,255,0.80);font-size:0.88rem;line-height:1.65;flex:1;}
+  .voice-who{display:flex;align-items:center;gap:11px;}
+  .voice-who .ph{
+    width:38px;height:38px;
+    border-radius:50%;
+    flex:none;
+    font-size:8px;
+    letter-spacing:0.06em;
+    padding:4px;
+  }
+  .voice-who strong{
+    font-family:'Figtree',sans-serif;
+    font-size:0.88rem;
+    color:#fff;
+    display:block;
+    line-height:1.3;
+  }
+  .voice-who span{font-size:0.76rem;color:var(--muted-dark);}
+  .voice-bottom{position:relative;display:flex;justify-content:center;}
+  .voice-bottom .watermark{font-size:clamp(2.6rem,10vw,8rem);top:50%;}
+  .voice-photo{width:min(420px,100%);height:300px;}
+  @media(max-width:1000px){
+    .voice-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media(max-width:600px){
+    .voice-grid{grid-template-columns:1fr;margin-bottom:36px;}
+    .voices{border-top-left-radius:28px;border-top-right-radius:28px;}
+    .voice-photo{height:220px;}
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--dark-2);color:rgba(255,255,255,0.72);padding:72px 0 0;}
+  .footer-grid{
+    display:grid;
+    grid-template-columns:1.5fr 1fr 1fr 1fr;
+    gap:40px;
+  }
+  .footer-logo img{height:44px;width:auto;filter:brightness(0) invert(1);margin-bottom:18px;}
+  .footer-grid p{font-size:0.88rem;line-height:1.7;max-width:38ch;}
+  .footer-grid h4{color:#fff;font-size:0.98rem;margin-bottom:16px;}
+  .footer-grid ul li{font-size:0.88rem;margin-bottom:10px;}
+  .footer-grid ul li a:hover{color:#fff;}
+  .footer-bottom{
+    margin-top:56px;
+    border-top:1px solid var(--line-dark);
+    padding:22px 0 26px;
+    text-align:center;
+    font-size:0.82rem;
+    color:rgba(255,255,255,0.52);
+  }
+  @media(max-width:860px){
+    .footer-grid{grid-template-columns:1fr 1fr;gap:32px;}
+  }
+  @media(max-width:520px){
+    .footer-grid{grid-template-columns:1fr;}
+    footer{padding-top:52px;}
   }
 </style>
 </head>
 <body>
 
-<header class="site-header">
+<header class="site-header" id="siteHeader">
   <div class="wrap nav-wrap">
     <a href="#pocetna" class="logo">
       <img src="assets/logo.png" alt="Vetland logo">
@@ -593,9 +586,10 @@
     </label>
     <nav class="nav-menu">
       <ul class="nav-links">
+        <li><a href="#o-nama">O nama</a></li>
         <li><a href="#usluge">Usluge</a></li>
-        <li><a href="#apoteka">Apoteka i pet shop</a></li>
-        <li><a href="#paketi">Preventiva</a></li>
+        <li><a href="#cenovnik">Cenovnik</a></li>
+        <li><a href="#ordinacija">Iz ordinacije</a></li>
         <li><a href="#kontakt">Kontakt</a></li>
       </ul>
       <a href="tel:034370275" class="btn">
@@ -610,479 +604,303 @@
 
   <!-- HERO -->
   <section class="hero" id="pocetna">
+    <div class="ph hero-media">
+      <img src="assets/hero.jpg" alt="Veterinar pregleda psa u ambulanti Vetland">
+      FOTOGRAFIJA - VETERINAR SA PSOM U AMBULANTI (ŠIROKA, TAMNA)
+    </div>
     <div class="wrap hero-inner">
-      <div>
-        <span class="chip">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="8" r="2.2"/><circle cx="12" cy="5.5" r="2.2"/><circle cx="17" cy="8" r="2.2"/><path d="M12 11c-3 0-5 2.2-5 4.6 0 1.9 1.6 2.9 3 2.5 1.3-.4 2.7-.4 4 0 1.4.4 3-.6 3-2.5 0-2.4-2-4.6-5-4.6Z"/></svg>
-          Kragujevac, Slobodana Perovića 8
-        </span>
-        <h1>Pregled, snimak i lek na istoj adresi u Kragujevcu</h1>
-        <p class="lead">Rendgen, ultrazvuk i laboratorija su u istoj zgradi kao i apoteka, pa ne šetate ljubimca po gradu da bi dobio dijagnozu i terapiju. Za konje, krave i ovce izlazimo na teren.</p>
+      <div class="hero-copy">
+        <span class="eyebrow" style="color:#f0c3b5;">Kragujevac, Slobodana Perovića 8</span>
+        <h1>Pregled, snimak i lek na istoj adresi</h1>
+        <p class="lead">Rendgen, ultrazvuk i laboratorija rade u istoj zgradi kao apoteka i pet shop. Ljubimac dobije dijagnozu i terapiju u jednoj poseti.</p>
         <div class="hero-actions">
           <a href="tel:034370275" class="btn">Pozovite 034/370-275</a>
-          <a href="#usluge" class="btn btn-ghost">Vidite šta radimo</a>
-        </div>
-        <div class="hero-stats">
-          <span class="hero-stat">
-            <img src="assets/rs3_thumb.jpg" alt="Ikona stetoskopa">
-            Ambulanta i dijagnostika
-          </span>
-          <span class="hero-stat">
-            <img src="assets/rs1_thumb.jpg" alt="Ikona tableta">
-            Apoteka na istom mestu
-          </span>
-          <span class="hero-stat">
-            <img src="assets/rs2_thumb.jpg" alt="Ikona šape">
-            Pet shop uz ambulantu
-          </span>
+          <a href="#usluge" class="btn btn-ghost on-dark">Pogledajte usluge</a>
         </div>
       </div>
-      <div class="hero-media">
-        <div class="placeholder">FOTOGRAFIJA - PAS I MAČKA U ORDINACIJI VETLAND</div>
-        <span class="hero-badge">
-          <img src="assets/ftb-1.jpg" alt="Pas sa stetoskopom oko vrata">
-          Zovite i za hitne slučajeve
-        </span>
+      <div class="hero-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.6 2.1"/></svg>
+        <div>
+          <strong>Radnim danima 8 do 20</strong>
+          <span>Subotom 8 do 15, nedeljom 9 do 13</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- USLUGE -->
-  <section id="usluge">
+  <!-- TRAKA SA IKONICAMA -->
+  <div class="strip">
+    <div class="wrap strip-grid">
+      <div class="strip-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16"/><path d="M15 4v16"/><path d="M3 12h18"/></svg>
+        <span>Rendgen i ultrazvuk</span>
+      </div>
+      <div class="strip-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6"/><path d="M10 3v6.5L5.8 17a3 3 0 0 0 2.6 4.5h7.2A3 3 0 0 0 18.2 17L14 9.5V3"/><path d="M7.4 14h9.2"/></svg>
+        <span>Laboratorija u kući</span>
+      </div>
+      <div class="strip-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v6a3 3 0 0 0 6 0V3"/><path d="M9 12v9"/><path d="M18 3v7a2.5 2.5 0 0 1-5 0"/><path d="M15.5 12.5 20 21"/></svg>
+        <span>Hirurgija i stomatologija</span>
+      </div>
+      <div class="strip-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.4-7-9.6A4.4 4.4 0 0 1 12 8a4.4 4.4 0 0 1 7 3.4C19 16.6 12 21 12 21Z"/><path d="M12 12v4"/><path d="M10 14h4"/></svg>
+        <span>Vakcinacija i čipovanje</span>
+      </div>
+      <div class="strip-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h2l2-6h8l3 6h3"/><circle cx="7" cy="19" r="2"/><circle cx="17" cy="19" r="2"/><path d="M13 11V6h4l2 5"/></svg>
+        <span>Teren za domaće životinje</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- O NAMA -->
+  <section id="o-nama">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="about-left">
+          <span class="eyebrow">O nama</span>
+          <h2>Ambulanta, apoteka i pet shop pod istim krovom</h2>
+          <div class="ph about-photo-1">
+            <img src="assets/o-nama-1.jpg" alt="Veterinar šiša i sređuje psa na stolu za negu">
+            FOTOGRAFIJA - PREGLED PSA U ORDINACIJI
+          </div>
+          <div class="about-actions">
+            <a href="tel:034370275" class="btn">Zakažite pregled</a>
+            <a href="#cenovnik" class="btn btn-ghost">Vidite cenovnik</a>
+          </div>
+        </div>
+        <div class="about-right">
+          <p>Vetland radi u Kragujevcu, u Slobodana Perovića 8. Pregled, snimanje i analiza krvi rade se u istoj zgradi, pa ne vozite psa iz jedne ordinacije u drugu da biste dobili nalaz.</p>
+          <p>Lek i hranu kupujete pre nego što izađete, u apoteci i pet shopu koji su odmah pored čekaonice. Vlasnik dobija terapiju u ruke isti dan kad je došao na pregled.</p>
+          <p>Za konje, krave i ovce izlazimo na teren u okolna sela. Pozovite i dogovorite se za dolazak na imanje.</p>
+          <div class="ph about-photo-2">
+            <img src="assets/o-nama-2.jpg" alt="Mačka na stolu za pregled u veterinarskoj ambulanti">
+            FOTOGRAFIJA - MAČKA NA STOLU ZA PREGLED
+          </div>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div>
+          <div class="stat-num">3</div>
+          <div class="stat-label">Ambulanta, apoteka i pet shop na istoj adresi</div>
+        </div>
+        <div>
+          <div class="stat-num">7</div>
+          <div class="stat-label">Radimo svih sedam dana u nedelji</div>
+        </div>
+        <div>
+          <div class="stat-num">8-20</div>
+          <div class="stat-label">Radnim danima, subotom do 15 časova</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USLUGE + CENOVNIK -->
+  <section class="band" id="usluge">
     <div class="wrap">
       <div class="section-head center">
-        <span class="chip">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.4-7-9.6A4.4 4.4 0 0 1 12 8a4.4 4.4 0 0 1 7 3.4C19 16.6 12 21 12 21Z"/></svg>
-          Šta radimo
-        </span>
-        <h2>Sve što ljubimcu treba, bez slanja u drugu kliniku</h2>
-        <p>Aparate imamo u kući, pa pregled, snimak i nalaz obično stanu u istu posetu.</p>
+        <span class="eyebrow">Usluge</span>
+        <h2>Veterinarska nega prilagođena vašem ljubimcu</h2>
+        <p>Od prve vakcine do operacije, sve se radi u istoj zgradi i kod istog tima.</p>
       </div>
 
-      <div class="cards-3">
-        <div class="card">
-          <div class="icon-tile">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#106d98" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l2-6 3 12 2-8 2 2h7"/></svg>
+      <div class="svc-grid">
+        <div class="svc-col">
+          <div class="svc-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 12h2l1.5-3 2 6 1.5-3h2"/></svg>
+            <h3>Rendgen i ultrazvuk</h3>
+            <p>Snimak dobijate isti dan, pa se terapija ne odlaže do sledeće posete.</p>
           </div>
-          <h3>Rendgen i ultrazvuk</h3>
-          <p>Kad pas proguta nešto što nije trebalo ili mačka šepa bez jasnog razloga, snimimo odmah i vidimo šta se dešava iznutra.</p>
+          <div class="ph svc-photo">
+            <img src="assets/usluga-1.jpg" alt="Ultrazvučni pregled psa">
+            FOTOGRAFIJA - ULTRAZVUČNI PREGLED
+          </div>
         </div>
+        <div class="svc-col">
+          <div class="svc-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6"/><path d="M10 3v6.5L5.8 17a3 3 0 0 0 2.6 4.5h7.2A3 3 0 0 0 18.2 17L14 9.5V3"/></svg>
+            <h3>Laboratorija i analize</h3>
+            <p>Krv i urin analiziramo u sopstvenoj laboratoriji dok vi čekate nalaz.</p>
+          </div>
+          <div class="ph svc-photo">
+            <img src="assets/usluga-2.jpg" alt="Uzorak krvi u veterinarskoj laboratoriji">
+            FOTOGRAFIJA - LABORATORIJA
+          </div>
+        </div>
+        <div class="svc-col">
+          <div class="svc-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v6a3 3 0 0 0 6 0V3"/><path d="M9 12v9"/><path d="M18 3v7a2.5 2.5 0 0 1-5 0"/></svg>
+            <h3>Hirurgija i stomatologija</h3>
+            <p>Sterilizacija, kastracija, meka tkiva i skidanje kamenca pod anestezijom.</p>
+          </div>
+          <div class="ph svc-photo">
+            <img src="assets/usluga-3.jpg" alt="Priprema psa za operaciju u operacionoj sali">
+            FOTOGRAFIJA - OPERACIONA SALA
+          </div>
+        </div>
+        <div class="svc-col">
+          <div class="svc-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.4-7-9.6A4.4 4.4 0 0 1 12 8a4.4 4.4 0 0 1 7 3.4C19 16.6 12 21 12 21Z"/><path d="M12 12v4"/><path d="M10 14h4"/></svg>
+            <h3>Vakcinacija i čipovanje</h3>
+            <p>Vakcine, mikročip i pasoš za putovanje, uz podsetnik kad ističe revakcinacija.</p>
+          </div>
+          <div class="ph svc-photo">
+            <img src="assets/usluga-4.jpg" alt="Vakcinacija šteneta kod veterinara">
+            FOTOGRAFIJA - VAKCINACIJA ŠTENETA
+          </div>
+        </div>
+      </div>
 
-        <div class="card">
-          <div class="icon-tile">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#106d98" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v6l-4 9a2.2 2.2 0 0 0 2 3h10a2.2 2.2 0 0 0 2-3l-4-9V3"/><path d="M8 3h8"/><path d="M6.5 15h11"/></svg>
-          </div>
-          <h3>Laboratorija</h3>
-          <p>Krv, urin i briseve analiziramo kod nas, pa rezultat ne čekate da stigne iz drugog grada.</p>
+      <!-- CENOVNIK -->
+      <div class="prices" id="cenovnik">
+        <div class="watermark" aria-hidden="true">cenovnik</div>
+        <div class="price-head">
+          <span class="eyebrow">Cenovnik</span>
         </div>
-
-        <div class="card">
-          <div class="icon-tile">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#106d98" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 3.5 20 9l-9.5 9.5H5v-5.5Z"/><path d="M12 6 17.5 11.5"/></svg>
+        <div class="price-block">
+          <div class="price-list">
+            <!-- CENE: upisati prave iznose iz ambulante -->
+            <div class="price-row"><span class="name">Klinički pregled</span><span class="dots"></span><span class="val">0.000 din</span></div>
+            <div class="price-row"><span class="name">Vakcina protiv besnila</span><span class="dots"></span><span class="val">0.000 din</span></div>
+            <div class="price-row"><span class="name">Mikročipovanje</span><span class="dots"></span><span class="val">0.000 din</span></div>
+            <div class="price-row"><span class="name">Kompletna analiza krvi</span><span class="dots"></span><span class="val">0.000 din</span></div>
           </div>
-          <h3>Hirurgija</h3>
-          <p>Od sterilizacije do složenijih operacija, u sopstvenoj sali i sa anestezijom prilagođenom vrsti i težini životinje.</p>
-        </div>
-
-        <div class="card">
-          <div class="icon-tile">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#106d98" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 20 6v5.5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6Z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>
+          <div class="ph price-photo">
+            <img src="assets/cenovnik.jpg" alt="Pas sedi ispred veterinarske ambulante">
+            FOTOGRAFIJA - PAS U ORDINACIJI (USPRAVNA)
           </div>
-          <h3>Vakcinacija i čipovanje</h3>
-          <p>Redovna vakcinacija, čipovanje i pasoš za put. Ako nemate kartončić, otvorimo novi na licu mesta.</p>
-        </div>
-
-        <div class="card">
-          <div class="icon-tile">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#106d98" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4c-4 0-6 3-6 5.5 0 3 1.5 3.8 1.5 6.7 0 2 1.5 3 2.5 2 .6-.6.6-3.2 2-3.2s1.4 2.6 2 3.2c1 1 2.5 0 2.5-2 0-2.9 1.5-3.7 1.5-6.7C18 7 16 4 12 4Z"/></svg>
+          <div class="price-list">
+            <div class="price-row"><span class="name">Rendgen snimak</span><span class="dots"></span><span class="val">0.000 din</span></div>
+            <div class="price-row"><span class="name">Ultrazvučni pregled</span><span class="dots"></span><span class="val">0.000 din</span></div>
+            <div class="price-row"><span class="name">Sterilizacija mačke</span><span class="dots"></span><span class="val">0.000 din</span></div>
+            <div class="price-row"><span class="name">Skidanje zubnog kamenca</span><span class="dots"></span><span class="val">0.000 din</span></div>
           </div>
-          <h3>Stomatologija</h3>
-          <p>Kamenac, upala desni i zub koji je dugo smetao. Zubi kod pasa i mačaka traže istu pažnju kao naši.</p>
         </div>
-
-        <div class="card">
-          <div class="icon-tile">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#106d98" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="10" width="14" height="6.5" rx="1.8"/><path d="M5.5 10 8 5.5h6.5L17 10"/><path d="M16.5 13.5H21"/><circle cx="6.5" cy="18" r="1.7"/><circle cx="13.5" cy="18" r="1.7"/></svg>
-          </div>
-          <h3>Terenska služba</h3>
-          <p>Za konje, krave i ovce dolazimo u dvorište. Poljoprivrednici iz okoline Kragujevca nas zovu kad pregled mora na licu mesta.</p>
-        </div>
+        <p class="price-note">Cena zavisi od težine životinje i obima zahvata. Pozovite <a href="tel:034370275" style="color:var(--accent);font-weight:600;">034/370-275</a> i recite šta vam treba.</p>
       </div>
     </div>
   </section>
 
-  <!-- HITNI SLUČAJEVI -->
-  <section style="padding-top:0;">
-    <div class="wrap">
-      <div class="banner">
-        <div class="banner-text">
-          <span class="chip on-dark">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
-            Hitni slučajevi
-          </span>
-          <h2>Kad se desi noću ili u nedelju, prvo nas pozovite</h2>
-          <p>Trovanje, povreda u saobraćaju, težak porođaj. Recite telefonom šta se dogodilo i koliko životinja teži, pa vam kažemo da li dolazite odmah ili može da čeka do jutra. Ako dolazite, spremimo salu dok ste na putu.</p>
-          <a href="tel:034370275" class="btn btn-light">Pozovite 034/370-275</a>
-        </div>
-        <div class="banner-media">
-          <div class="placeholder on-dark">FOTOGRAFIJA - VETERINAR SA PSOM U ORDINACIJI</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- APOTEKA I PET SHOP -->
-  <section id="apoteka" style="padding-top:0;">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="chip">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16l-1.3 11a2 2 0 0 1-2 1.8H7.3a2 2 0 0 1-2-1.8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
-          Apoteka i pet shop
-        </span>
-        <h2>Terapiju i hranu kupujete pre nego što izađete</h2>
-        <p>Posle pregleda ne tražite gde ima lek. Apoteka i pet shop su u sklopu ambulante.</p>
-      </div>
-
-      <div class="split-2">
-        <div class="split-card">
-          <img class="thumb" src="assets/ftb-2.jpg" alt="Kapsule antibiotika u veterinarskoj apoteci">
-          <h3>Veterinarska apoteka</h3>
-          <p>Držimo ono što se najčešće propisuje posle pregleda, a ako nečega nema na lageru, poručimo i javimo kad stigne.</p>
-          <ul>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="#106d98" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg>
-              Antiparazitici, tablete i ampule protiv krpelja i buva
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="#106d98" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg>
-              Antibiotici na recept, rastvori za infuziju, vitamini
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="#106d98" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg>
-              Preparati za hronične bolesti, srce i bubrege
-            </li>
-          </ul>
-          <a href="tel:034370275" class="btn btn-ghost">Pitajte da li imamo lek</a>
-        </div>
-
-        <div class="split-card">
-          <img class="thumb" src="assets/ftb-3.jpg" alt="Pas i mačka pored posude sa hranom">
-          <h3>Pet shop</h3>
-          <p>Hrana i oprema za svaki dan, uz savet veterinara koji je pregledao vašeg psa ili mačku.</p>
-          <ul>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="#106d98" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg>
-              Suva i vlažna hrana za pse i mačke, po uzrastu
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="#106d98" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg>
-              Povodci, ogrlice, transporteri i posude
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="#106d98" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg>
-              Pribor za negu, šamponi, igračke
-            </li>
-          </ul>
-          <a href="#proizvodi" class="btn btn-ghost">Vidite asortiman</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- KAKO IZGLEDA POSETA -->
-  <section>
-    <div class="wrap">
-      <div class="section-head center">
-        <span class="chip">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v3H8Z"/><path d="M6 7h12v13H6Z"/><path d="M10 13h4"/><path d="M12 11v4"/></svg>
-          Kako izgleda poseta
-        </span>
-        <h2>Tri koraka od poziva do terapije</h2>
-        <p>Da znate šta vas čeka kad uđete kroz vrata sa uznemirenim psom u naručju.</p>
-      </div>
-
-      <div class="cards-3">
-        <div class="step">
-          <div class="step-num">1</div>
-          <h3>Pozovete i opišete problem</h3>
-          <p>Kažete koja je životinja, koliko je stara i šta primećujete. Dogovorimo termin, a ako zvuči ozbiljno, kažemo da dođete odmah.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <h3>Pregled i dijagnostika</h3>
-          <p>Pregledamo životinju, pa ako treba snimak ili analiza krvi, uradimo to u istoj poseti i objasnimo nalaz jezikom koji se razume.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <h3>Terapija i kontrola</h3>
-          <p>Lek uzimate u apoteci pored, uz zapisano kako se daje. Zakažemo kontrolu i kažemo na šta da pazite kod kuće.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PAKETI PREVENTIVE -->
-  <section id="paketi" style="padding-top:0;">
-    <div class="wrap">
-      <div class="section-head center">
-        <span class="chip">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 20 6v5.5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6Z"/></svg>
-          Preventiva
-        </span>
-        <h2>Šta ljubimcu treba, po uzrastu</h2>
-        <p>Cene zavise od vrste, težine i onoga što se nađe na pregledu, pa ih dogovaramo telefonom ili na licu mesta.</p>
-      </div>
-
-      <div class="plans">
-        <div class="plan">
-          <span class="plan-tag">Mladunci</span>
-          <h3>Prvi meseci</h3>
-          <p class="plan-note">Za štence i mačiće do godinu dana.</p>
-          <ul>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="#106d98" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg>
-              Prvi pregled i procena razvoja
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="#106d98" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg>
-              Vakcine po planu i terapija protiv glista
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="#106d98" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg>
-              Čipovanje i upis u bazu
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="#106d98" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg>
-              Savet o hrani za rast
-            </li>
-          </ul>
-          <a href="tel:034370275" class="btn btn-ghost">Pitajte za cenu</a>
-        </div>
-
-        <div class="plan featured">
-          <span class="plan-tag">Odrasli ljubimci</span>
-          <h3>Godišnja kontrola</h3>
-          <p class="plan-note">Za pse i mačke od 1 do 7 godina.</p>
-          <ul>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="#106d98" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg>
-              Opšti pregled, srce i pluća
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="#106d98" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg>
-              Revakcinacija i zaštita od krpelja
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="#106d98" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg>
-              Pregled zuba i uklanjanje kamenca po potrebi
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="#106d98" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg>
-              Papiri za put u inostranstvo
-            </li>
-          </ul>
-          <a href="tel:034370275" class="btn">Zakažite pregled</a>
-        </div>
-
-        <div class="plan">
-          <span class="plan-tag">Stariji ljubimci</span>
-          <h3>Posle sedme godine</h3>
-          <p class="plan-note">Za pse i mačke koje ulaze u godine.</p>
-          <ul>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="#106d98" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg>
-              Krvna slika, bubrezi i jetra
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="#106d98" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg>
-              Ultrazvuk stomaka kad se sumnja na promenu
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="#106d98" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg>
-              Praćenje hronične terapije
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="#106d98" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg>
-              Hrana za zglobove i bubrege iz pet shopa
-            </li>
-          </ul>
-          <a href="tel:034370275" class="btn btn-ghost">Pitajte za cenu</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROIZVODI -->
-  <section id="proizvodi" style="padding-top:0;">
+  <!-- IZ ORDINACIJE -->
+  <section id="ordinacija">
     <div class="wrap">
       <div class="head-row">
         <div class="section-head">
-          <span class="chip">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h2.5l2.2 10.5h10L20 8H7"/><circle cx="9" cy="19" r="1.6"/><circle cx="17" cy="19" r="1.6"/></svg>
-            Iz pet shopa
-          </span>
-          <h2>Ono što vlasnici najčešće nose kući</h2>
-          <p>Zalihe proveravamo svakog dana, pa pozovite pre dolaska ako vam treba veće pakovanje.</p>
+          <span class="eyebrow">Iz ordinacije</span>
+          <h2>Šta radimo dok je ljubimac kod nas</h2>
         </div>
-        <a href="tel:034370275" class="btn btn-ghost btn-sm">Proverite lager</a>
+        <a href="tel:034370275" class="btn">Zakažite pregled</a>
       </div>
 
-      <div class="products">
-        <div class="product">
-          <div class="product-media">
-            <div class="ph-text">FOTOGRAFIJA - VREĆE HRANE ZA PSE I MAČKE</div>
+      <div class="gal-grid">
+        <div class="gal-item">
+          <div class="ph">
+            <img src="assets/galerija-1.jpg" alt="Ultrazvučni pregled trbuha kod psa">
+            FOTOGRAFIJA - ULTRAZVUK TRBUHA
           </div>
-          <h3>Hrana za pse i mačke</h3>
-          <p>Suva i vlažna, za mladunce, odrasle i osetljive stomake.</p>
-          <div class="product-foot">
-            <span>Pitajte za cenu</span>
-            <a href="tel:034370275" class="btn btn-ghost btn-sm">Pozovite</a>
-          </div>
+          <span class="gal-label">Dijagnostika</span>
+          <h3>Ultrazvuk trbuha</h3>
         </div>
-
-        <div class="product">
-          <div class="product-media">
-            <div class="ph-text">FOTOGRAFIJA - AMPULE I OGRLICE PROTIV KRPELJA</div>
+        <div class="gal-item">
+          <div class="ph">
+            <img src="assets/galerija-2.jpg" alt="Vakcinacija šteneta u ambulanti">
+            FOTOGRAFIJA - VAKCINACIJA ŠTENACA
           </div>
-          <h3>Zaštita od krpelja i buva</h3>
-          <p>Tablete, ampule i ogrlice, po težini životinje.</p>
-          <div class="product-foot">
-            <span>Pitajte za cenu</span>
-            <a href="tel:034370275" class="btn btn-ghost btn-sm">Pozovite</a>
-          </div>
+          <span class="gal-label">Preventiva</span>
+          <h3>Vakcinacija štenaca</h3>
         </div>
-
-        <div class="product">
-          <div class="product-media">
-            <div class="ph-text">FOTOGRAFIJA - ŠAMPON I PRIBOR ZA NEGU</div>
+        <div class="gal-item">
+          <div class="ph">
+            <img src="assets/galerija-3.jpg" alt="Priprema pacijenta za operaciju">
+            FOTOGRAFIJA - PRIPREMA ZA OPERACIJU
           </div>
-          <h3>Nega krzna i kože</h3>
-          <p>Šamponi za osetljivu kožu, češljevi i makazice za nokte.</p>
-          <div class="product-foot">
-            <span>Pitajte za cenu</span>
-            <a href="tel:034370275" class="btn btn-ghost btn-sm">Pozovite</a>
-          </div>
+          <span class="gal-label">Hirurgija</span>
+          <h3>Priprema za operaciju</h3>
         </div>
-
-        <div class="product">
-          <div class="product-media">
-            <div class="ph-text">FOTOGRAFIJA - POVODCI, POSUDE I IGRAČKE</div>
+        <div class="gal-item">
+          <div class="ph">
+            <img src="assets/galerija-4.jpg" alt="Veterinar na terenu pored krave">
+            FOTOGRAFIJA - IZLAZAK NA IMANJE
           </div>
-          <h3>Oprema i igračke</h3>
-          <p>Povodci, ogrlice, transporteri, posude i igračke za žvakanje.</p>
-          <div class="product-foot">
-            <span>Pitajte za cenu</span>
-            <a href="tel:034370275" class="btn btn-ghost btn-sm">Pozovite</a>
-          </div>
+          <span class="gal-label">Teren</span>
+          <h3>Izlazak na imanje</h3>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- TERENSKA SLUŽBA -->
-  <section style="padding-top:0;">
+  <!-- UTISCI -->
+  <section class="voices">
     <div class="wrap">
-      <div class="banner">
-        <div class="banner-text">
-          <span class="chip on-dark">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18h4l1.5-4H21"/><path d="M6 14V8h6l3 6"/><circle cx="18" cy="18" r="2"/></svg>
-            Teren
-          </span>
-          <h2>Za stoku izlazimo u dvorište</h2>
-          <p>Krava koja se teško telila, konj koji hramlje, vakcinacija celog stada. Dogovorite dolazak telefonom i recite koliko životinja treba pregledati, da spakujemo odgovarajuću opremu.</p>
-          <a href="tel:034370275" class="btn btn-light">Dogovorite izlazak na teren</a>
-        </div>
-        <div class="banner-media">
-          <div class="placeholder on-dark">FOTOGRAFIJA - VETERINAR NA TERENU SA DOMAĆIM ŽIVOTINJAMA</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ZAKAZIVANJE I KONTAKT -->
-  <section id="kontakt" style="padding-top:0;">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="chip">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16v14H4Z"/><path d="M8 3v4"/><path d="M16 3v4"/><path d="M4 10h16"/></svg>
-          Zakazivanje
-        </span>
-        <h2>Zakažite pregled ili nas samo pozovite</h2>
-        <p>Telefon je najbrži put. Ako vam je lakše da ostavite podatke, popunite obrazac i javljamo se tokom radnog vremena.</p>
+      <div class="section-head center on-dark" style="margin-bottom:44px;">
+        <span class="eyebrow on-dark">Utisci</span>
+        <h2>Šta kažu vlasnici</h2>
       </div>
 
-      <div class="booking">
-        <div class="form-card">
-          <h3>Ostavite podatke</h3>
-          <p>Recite nam koja je životinja i šta primećujete, da znamo koliko vremena da odvojimo.</p>
-          <form action="#" method="post">
-            <div class="form-grid">
-              <div class="field">
-                <label for="ime">Vaše ime</label>
-                <input type="text" id="ime" name="ime" placeholder="Ime i prezime" required>
-              </div>
-              <div class="field">
-                <label for="telefon">Telefon</label>
-                <input type="tel" id="telefon" name="telefon" placeholder="06x xxx xxxx" required>
-              </div>
-              <div class="field">
-                <label for="vrsta">Životinja</label>
-                <select id="vrsta" name="vrsta">
-                  <option>Pas</option>
-                  <option>Mačka</option>
-                  <option>Ptica ili glodar</option>
-                  <option>Domaća životinja (teren)</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="usluga">Šta vam treba</label>
-                <select id="usluga" name="usluga">
-                  <option>Pregled</option>
-                  <option>Vakcinacija ili čipovanje</option>
-                  <option>Rendgen ili ultrazvuk</option>
-                  <option>Operacija</option>
-                  <option>Nešto drugo</option>
-                </select>
-              </div>
-              <div class="field full">
-                <label for="poruka">Šta primećujete</label>
-                <textarea id="poruka" name="poruka" placeholder="Na primer: pas ne jede dva dana i povraća"></textarea>
-              </div>
+      <!-- UTISCI: zameniti pravim citatima klijenata (npr. sa Google recenzija) -->
+      <div class="voice-grid">
+        <div class="voice-card">
+          <p>Doveli smo psa uveče sa povredom šape. Snimili su ga odmah i dali terapiju, nismo morali nigde dalje.</p>
+          <div class="voice-who">
+            <div class="ph on-dark">
+              <img src="assets/avatar-1.jpg" alt="Fotografija klijenta">
+              FOTO
             </div>
-            <button type="submit" class="btn">Pošaljite zahtev</button>
-          </form>
-          <p class="form-note">Hitan slučaj ne šaljite obrascem, nego pozovite <a href="tel:034370275">034/370-275</a>.</p>
+            <div>
+              <strong>Ime Prezime</strong>
+              <span>Kragujevac</span>
+            </div>
+          </div>
         </div>
+        <div class="voice-card">
+          <p>Mačku sterilisali bez komplikacija. Objasnili su mi šta da radim kod kuće i zvali sutradan da provere kako je.</p>
+          <div class="voice-who">
+            <div class="ph on-dark">
+              <img src="assets/avatar-2.jpg" alt="Fotografija klijentkinje">
+              FOTO
+            </div>
+            <div>
+              <strong>Ime Prezime</strong>
+              <span>Kragujevac</span>
+            </div>
+          </div>
+        </div>
+        <div class="voice-card">
+          <p>Nalaz krvi sam dobio dok sam čekao u čekaonici. Lek sam kupio tu u apoteci i završio sve za sat vremena.</p>
+          <div class="voice-who">
+            <div class="ph on-dark">
+              <img src="assets/avatar-3.jpg" alt="Fotografija klijenta">
+              FOTO
+            </div>
+            <div>
+              <strong>Ime Prezime</strong>
+              <span>Kragujevac</span>
+            </div>
+          </div>
+        </div>
+        <div class="voice-card">
+          <p>Izašli su na imanje kod Kragujevca zbog krave. Došli su isti dan i nisu pravili problem oko sata.</p>
+          <div class="voice-who">
+            <div class="ph on-dark">
+              <img src="assets/avatar-4.jpg" alt="Fotografija klijenta">
+              FOTO
+            </div>
+            <div>
+              <strong>Ime Prezime</strong>
+              <span>okolina Kragujevca</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
-        <div class="contact-col">
-          <div class="info-card">
-            <div class="icon-tile">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#106d98" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 10.5a2.2 2.2 0 1 0 0-4.4 2.2 2.2 0 0 0 0 4.4Z"/><path d="M12 21c4.5-4.6 7-7.8 7-11a7 7 0 0 0-14 0c0 3.2 2.5 6.4 7 11Z"/></svg>
-            </div>
-            <div>
-              <h4>Adresa</h4>
-              <p>Slobodana Perovića 8<br>34000 Kragujevac</p>
-            </div>
-          </div>
-          <div class="info-card">
-            <div class="icon-tile">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#106d98" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.6 2.1"/></svg>
-            </div>
-            <div>
-              <h4>Radno vreme</h4>
-              <p>Radnim danima 8 do 20<br>Subotom 8 do 15<br>Nedeljom 9 do 13</p>
-            </div>
-          </div>
-          <div class="info-card">
-            <div class="icon-tile">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#106d98" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16.5v3a2 2 0 0 1-2.2 2 19 19 0 0 1-8.3-3 18.6 18.6 0 0 1-5.7-5.7 19 19 0 0 1-3-8.4A2 2 0 0 1 3.8 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.7a15 15 0 0 0 5.7 5.7l1.1-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
-            </div>
-            <div>
-              <h4>Telefon i imejl</h4>
-              <p><a href="tel:034370275">034/370-275</a><br><a href="mailto:info@vetland.rs">info@vetland.rs</a></p>
-            </div>
-          </div>
-          <div class="placeholder">MAPA - SLOBODANA PEROVIĆA 8, KRAGUJEVAC</div>
+      <div class="voice-bottom">
+        <div class="watermark on-dark" aria-hidden="true">utisci vlasnika</div>
+        <div class="ph on-dark voice-photo" style="position:relative;z-index:1;">
+          <img src="assets/utisci.jpg" alt="Zadovoljan pas posle pregleda">
+          FOTOGRAFIJA - PAS POSLE PREGLEDA
         </div>
       </div>
     </div>
@@ -1090,7 +908,8 @@
 
 </main>
 
-<footer>
+<!-- FOOTER -->
+<footer id="kontakt">
   <div class="wrap">
     <div class="footer-grid">
       <div>
@@ -1102,19 +921,26 @@
       <div>
         <h4>Sajt</h4>
         <ul>
+          <li><a href="#o-nama">O nama</a></li>
           <li><a href="#usluge">Usluge</a></li>
-          <li><a href="#apoteka">Apoteka i pet shop</a></li>
-          <li><a href="#paketi">Preventiva</a></li>
-          <li><a href="#proizvodi">Iz pet shopa</a></li>
+          <li><a href="#cenovnik">Cenovnik</a></li>
+          <li><a href="#ordinacija">Iz ordinacije</a></li>
         </ul>
       </div>
       <div>
         <h4>Kontakt</h4>
         <ul>
-          <li>Slobodana Perovića 8, Kragujevac</li>
+          <li>Slobodana Perovića 8<br>34000 Kragujevac</li>
           <li><a href="tel:034370275">034/370-275</a></li>
           <li><a href="mailto:info@vetland.rs">info@vetland.rs</a></li>
-          <li><a href="#kontakt">Zakažite pregled</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Radno vreme</h4>
+        <ul>
+          <li>Radnim danima 8 do 20</li>
+          <li>Subotom 8 do 15</li>
+          <li>Nedeljom 9 do 13</li>
         </ul>
       </div>
     </div>
@@ -1123,6 +949,45 @@
     </div>
   </div>
 </footer>
+
+<script>
+  // Header dobija podlogu čim se skroluje sa hero sekcije.
+  (function () {
+    var header = document.getElementById('siteHeader');
+    function onScroll() {
+      if (window.scrollY > 40) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+
+  // Zatvori mobilni meni posle klika na link.
+  (function () {
+    var toggle = document.getElementById('nav-toggle');
+    document.querySelectorAll('.nav-menu a').forEach(function (a) {
+      a.addEventListener('click', function () { toggle.checked = false; });
+    });
+  })();
+
+  // Dok fotografija ne postoji u assets/, ostaje sivi placeholder ispod nje.
+  (function () {
+    var shots = document.querySelectorAll('.ph img');
+    shots.forEach(function (img) {
+      function loaded() { img.parentNode.classList.add('has-photo'); }
+      function missing() { img.remove(); }
+      if (img.complete) {
+        if (img.naturalWidth > 0) { loaded(); } else { missing(); }
+        return;
+      }
+      img.addEventListener('load', loaded);
+      img.addEventListener('error', missing);
+    });
+  })();
+</script>
 
 </body>
 </html>
