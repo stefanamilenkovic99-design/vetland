@@ -499,13 +499,30 @@
     position:relative;
     overflow:hidden;
   }
-  .voice-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:20px;
+  .voice-marquee{
+    overflow:hidden;
     margin-bottom:56px;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+    mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+  }
+  .voice-track{
+    display:flex;
+    width:max-content;
+    animation:voice-marquee 34s linear infinite;
+  }
+  .voice-track:hover{animation-play-state:paused;}
+  @keyframes voice-marquee{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .voice-marquee{overflow-x:auto;}
+    .voice-track{animation:none;}
   }
   .voice-card{
+    flex:0 0 auto;
+    width:320px;
+    margin-right:20px;
     background:rgba(255,255,255,0.05);
     border:1px solid var(--line-dark);
     border-radius:var(--radius-sm);
@@ -535,11 +552,9 @@
   .voice-bottom{position:relative;display:flex;justify-content:center;}
   .voice-bottom .watermark{font-size:clamp(2.6rem,10vw,8rem);top:50%;}
   .voice-photo{width:min(420px,100%);height:300px;}
-  @media(max-width:1000px){
-    .voice-grid{grid-template-columns:repeat(2,1fr);}
-  }
   @media(max-width:600px){
-    .voice-grid{grid-template-columns:1fr;margin-bottom:36px;}
+    .voice-marquee{margin-bottom:36px;}
+    .voice-card{width:275px;}
     .voices{border-top-left-radius:28px;border-top-right-radius:28px;}
     .voice-photo{height:220px;}
   }
@@ -841,7 +856,10 @@
       </div>
 
       <!-- UTISCI: zameniti pravim citatima klijenata (npr. sa Google recenzija) -->
-      <div class="voice-grid">
+    </div>
+
+    <div class="voice-marquee">
+      <div class="voice-track">
         <div class="voice-card">
           <p>Doveli smo psa uveče sa povredom šape. Snimili su ga odmah i dali terapiju, nismo morali nigde dalje.</p>
           <div class="voice-who">
@@ -894,7 +912,62 @@
             </div>
           </div>
         </div>
-      </div>
+        <div class="voice-card" aria-hidden="true">
+          <p>Doveli smo psa uveče sa povredom šape. Snimili su ga odmah i dali terapiju, nismo morali nigde dalje.</p>
+          <div class="voice-who">
+            <div class="ph on-dark">
+              <img src="assets/avatar-1.jpg" alt="">
+              FOTO
+            </div>
+            <div>
+              <strong>Ime Prezime</strong>
+              <span>Kragujevac</span>
+            </div>
+          </div>
+        </div>
+        <div class="voice-card" aria-hidden="true">
+          <p>Mačku sterilisali bez komplikacija. Objasnili su mi šta da radim kod kuće i zvali sutradan da provere kako je.</p>
+          <div class="voice-who">
+            <div class="ph on-dark">
+              <img src="assets/avatar-2.jpg" alt="">
+              FOTO
+            </div>
+            <div>
+              <strong>Ime Prezime</strong>
+              <span>Kragujevac</span>
+            </div>
+          </div>
+        </div>
+        <div class="voice-card" aria-hidden="true">
+          <p>Nalaz krvi sam dobio dok sam čekao u čekaonici. Lek sam kupio tu u apoteci i završio sve za sat vremena.</p>
+          <div class="voice-who">
+            <div class="ph on-dark">
+              <img src="assets/avatar-3.jpg" alt="">
+              FOTO
+            </div>
+            <div>
+              <strong>Ime Prezime</strong>
+              <span>Kragujevac</span>
+            </div>
+          </div>
+        </div>
+        <div class="voice-card" aria-hidden="true">
+          <p>Izašli su na imanje kod Kragujevca zbog krave. Došli su isti dan i nisu pravili problem oko sata.</p>
+          <div class="voice-who">
+            <div class="ph on-dark">
+              <img src="assets/avatar-4.jpg" alt="">
+              FOTO
+            </div>
+            <div>
+              <strong>Ime Prezime</strong>
+              <span>okolina Kragujevca</span>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="wrap">
 
       <div class="voice-bottom">
         <div class="watermark on-dark" aria-hidden="true">utisci vlasnika</div>
